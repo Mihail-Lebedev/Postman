@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "2188b495-e8e0-428a-80c9-f67acae839f7",
+		"name": "AgentApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23832698"
+	},
+	"item": [
+		{
+			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"qa@qa.qa\",\r\n    \"password\":\"111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/{{api_version}}/users/obtain-token",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{api_version}}",
+						"users",
+						"obtain-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "водитель",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"Олег\",\r\n  \"last_name\": \"Иванов\",\r\n  \"patronymic\": \"Сергеевич\",\r\n  \"birth_date\": \"2000-02-14\",\r\n  \"driving_experience_started\": \"2018-06-25\",\r\n  \"driver_licenses\": [\r\n    {\r\n      \"credential_type\": \"DRIVER_LICENSE\",\r\n      \"number\": \"619605\",\r\n      \"series\": \"7031\",\r\n      \"issue_date\": \"2018-06-25\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/{{api_version}}/insured_objects/drivers",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{api_version}}",
+						"insured_objects",
+						"drivers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "собственник",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token  {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"last_name\": \"Смирнов\",\r\n  \"first_name\": \"Сергей\",\r\n  \"patronymic\": \"Олегович\",\r\n  \"birth_date\": \"1997-06-15\",\r\n  \"credential\": [\r\n    {\r\n      \"credential_type\": \"RUSSIAN_INTERNAL_PASSPORT\",\r\n      \"issue_date\": \"2017-03-08\",\r\n      \"issue_point\": \"УФМС РОССИИ ПО ТОМСКОЙ ОБЛАСТИ\",\r\n      \"issue_point_code\": \"700-002\",\r\n      \"number\": \"865497\",\r\n      \"series\": \"6919\"\r\n    }\r\n  ],\r\n  \"address\": [\r\n    {\r\n      \"address_query\": \"г Томск, ул Говорова, д 62 к 30\",\r\n      \"address_type\": \"LEGAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7000000000000\",\r\n      \"city_kladr_id\": \"7000000100000\"\r\n    },\r\n    {\r\n      \"address_query\": \"г Томск, ул Говорова, д 62 к 30\",\r\n      \"address_type\": \"ACTUAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7000000000000\",\r\n      \"city_kladr_id\": \"7000000100000\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/{{api_version}}/insured_objects/owners/natural_persons",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{api_version}}",
+						"insured_objects",
+						"owners",
+						"natural_persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Страхователь",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"last_name\": \"Смирнов\",\r\n  \"first_name\": \"Сергей\",\r\n  \"patronymic\": \"Олегович\",\r\n  \"birth_date\": \"1976-06-15\",\r\n  \"credential\": [\r\n    {\r\n      \"credential_type\": \"RUSSIAN_INTERNAL_PASSPORT\",\r\n      \"issue_date\": \"2019-06-27\",\r\n      \"issue_point\": \"УФМС РОССИИ ПО ТОМСКОЙ ОБЛАСТИ\",\r\n      \"issue_point_code\": \"700-002\",\r\n      \"number\": \"865497\",\r\n      \"series\": \"6919\"\r\n    }\r\n  ],\r\n  \"address\": [\r\n    {\r\n      \"address_query\": \"г Томск, ул Говорова, д 62 к 30\",\r\n      \"address_type\": \"LEGAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7000000000000\",\r\n      \"city_kladr_id\": \"7000000100000\"\r\n    },\r\n    {\r\n      \"address_query\": \"г Томск, ул Говорова, д 62 к 30\",\r\n      \"address_type\": \"ACTUAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7000000000000\",\r\n      \"city_kladr_id\": \"7000000100000\"\r\n    }\r\n  ],\r\n   \"contact\": [\r\n        {\r\n            \"contact_type\": \"PHONE\",\r\n            \"data\": \"+79992061450\"\r\n        },\r\n        {\r\n            \"contact_type\": \"EMAIL\",\r\n            \"data\": \"natahodyr@yandex.ru\"\r\n        }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/{{api_version}}/insured_objects/insurants/natural_persons",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{api_version}}",
+						"insured_objects",
+						"insurants",
+						"natural_persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Автомобиль",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"car_model_id\": 261020578,\r\n  \"engine_power\": 110,\r\n  \"vin_number\": \"SJNFCAE11U1230880\",\r\n  \"number_plate\": \"P617EC70\",\r\n  \"manufacturing_year\": 2007,\r\n  \"max_mass\": null,\r\n  \"has_trailer\": false,\r\n  \"credential\": [\r\n    {\r\n      \"credential_type\": \"VEHICLE_REGISTRATION\",\r\n      \"issue_date\": \"2010-11-01\",\r\n      \"number\": \"204326\",\r\n      \"series\": \"70PM\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/{{api_version}}/insured_objects/cars",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{api_version}}",
+						"insured_objects",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Объект страхования",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"drivers\":[\r\n        {{Driver_id}}\r\n    ],\r\n    \"owner\": {{Owner_id}},\r\n    \"car\": {{Auto_id}},\r\n    \"insurant\": {{Insurant_id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/{{api_version}}/insured_objects/",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{api_version}}",
+						"insured_objects",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "договор",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"valid_from\": \"2023-06-30\",\r\n  \"valid_to\": \"2024-06-29\",\r\n  \"insurance_period\": 8,\r\n  \"target_of_using\": 11,\r\n  \"drivers_ids\":[\"c4ca2b17-0e82-4327-bfac-8385d107dd13\"],\r\n  \"is_car_without_registration\": false,\r\n  \"engine_power\": 110,\r\n  \"has_car_trailer\": false,\r\n  \"car_type\": \"B\",\r\n  \"owner_registration\":   {\r\n      \"address_query\": \"г Томск, ул Говорова, д 62 к 30\",\r\n      \"address_type\": \"LEGAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7000000000000\",\r\n      \"city_kladr_id\": \"7000000100000\"\r\n    },\r\n  \"periods\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/v3/agreements/calculations",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v3",
+						"agreements",
+						"calculations"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "partner.agentapp.ru",
+			"type": "string"
+		},
+		{
+			"key": "api_version",
+			"value": "v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+			"type": "string"
+		},
+		{
+			"key": "Driver_id",
+			"value": "\"c4ca2b17-0e82-4327-bfac-8385d107dd13\"",
+			"type": "string"
+		},
+		{
+			"key": "Auto_id",
+			"value": "\"2c590e04-098d-40ff-be96-57c1fb42cb70\"",
+			"type": "string"
+		},
+		{
+			"key": "Owner_id",
+			"value": "\"c5801556-48c3-422d-a950-2c6cd04b493b\"",
+			"type": "string"
+		},
+		{
+			"key": "Insurant_id",
+			"value": "\"dd027c58-d3f8-4ef9-a901-05976c0553b1\"",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "8e0014ad-b318-46db-a31d-bd194dbd0aed",
+		"name": "star wars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23832698"
+	},
+	"item": [
+		{
+			"name": "запрос за персонажа",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"все ок\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"хедер в здании\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"сила прибыла\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Obi-Wan Kenobi\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/people/10/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"people",
+						"10",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "запрос за планетой",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"время отклика не более 10\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(10);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"сравнение поля climate\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.climate).to.eql(\"temperate\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/planets/7/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"planets",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "запрос за космическим кораблем",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"хедер конент тайп в наличии\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"сравнение поля пассажиры\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.passengers).to.eql(\"75\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/starships/5/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"starships",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://swapi.dev\n",
+			"type": "string"
+		}
+	]
+}

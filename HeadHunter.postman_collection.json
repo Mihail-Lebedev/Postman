@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "bde3a012-80f9-4c67-9a3c-a7737d92a15b",
+		"name": "HeadHunter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23832698"
+	},
+	"item": [
+		{
+			"name": "Запрос за ключевым навыком",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/suggests/skill_set?text=тестирование пользовательского интерфейса",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"suggests",
+						"skill_set"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "тестирование пользовательского интерфейса"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "запрос застанции метро НН",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/metro/66",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"metro",
+						"66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "запрос за компанию QA studio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/employers/6017235",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"employers",
+						"6017235"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "для поиска  id Qa studio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/employers?text=qa studio",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"employers"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "qa studio"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "запрос за возможными языками",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=r2t5uvjq435r4q7ib3vtdjq120",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/languages",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "попытка на 500",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.ozon.ru/product/elektronnyy-podarochnyy-sertifikat-million-podarkov-135382627/?perehod=menu&sh=B157zD8laQ",
+					"protocol": "https",
+					"host": [
+						"www",
+						"ozon",
+						"ru"
+					],
+					"path": [
+						"product",
+						"elektronnyy-podarochnyy-sertifikat-million-podarkov-135382627",
+						""
+					],
+					"query": [
+						{
+							"key": "perehod",
+							"value": "menu"
+						},
+						{
+							"key": "sh",
+							"value": "B157zD8laQ"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

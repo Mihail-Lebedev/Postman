@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "0d0fd186-9c82-4309-bb9b-32430d8155f0",
+		"name": "сUrl в постман",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23832698"
+	},
+	"item": [
+		{
+			"name": "https://api.staya.dog/v1/auth/password/recovery/request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "api.staya.dog"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "ru"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "cookie",
+						"value": "_ym_uid=1666097916322802542; _ym_d=1666097916; _ga=GA1.2.1717309198.1666097916; _ym_isad=1; _ym_visorc=w; _gid=GA1.2.1480489556.1666872328; _gat_UA-144089875-2=1"
+					},
+					{
+						"key": "origin",
+						"value": "https://staya.dog"
+					},
+					{
+						"key": "referer",
+						"value": "https://staya.dog/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"del-mihail-lebedev@qa.studio\"}"
+				},
+				"url": {
+					"raw": "https://api.staya.dog/v1/auth/password/recovery/request",
+					"protocol": "https",
+					"host": [
+						"api",
+						"staya",
+						"dog"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"password",
+						"recovery",
+						"request"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

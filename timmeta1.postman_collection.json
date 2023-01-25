@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "0cc928fe-5677-463a-902a-4af09564c543",
+		"name": "timmeta1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23832698"
+	},
+	"item": [
+		{
+			"name": "токен",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "external",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "all offline_access",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "NesterovA@test-task.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "gG9NfM",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://auth.timetta.com/connect/token",
+					"protocol": "https",
+					"host": [
+						"auth",
+						"timetta",
+						"com"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "проект",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ЛебедевProject267\",\r\n    \"billingTypeId\": \"e87e0e6b-c034-45ac-8b74-bd0256f3f535\",\r\n    \"managerId\": \"bcd753cc-0b80-47ae-a471-6ff7f06010e1\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.timetta.com/odata/Projects",
+					"protocol": "https",
+					"host": [
+						"api",
+						"timetta",
+						"com"
+					],
+					"path": [
+						"odata",
+						"Projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "_3.7.3",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "authority",
+						"value": "api.timetta.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9,ru;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkUzQUJEMzAxNzdEMEZDNjU2RDg4MDRFOTQ2RUJFOTdCNTJBRUQ2MzhSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6IjQ2dlRBWGZRX0dWdGlBVHBSdXZwZTFLdTFqZyJ9.eyJuYmYiOjE2NjY5NDM2NzYsImV4cCI6MTY2Njk0NzI3NiwiaXNzIjoiaHR0cHM6Ly9hdXRoLnRpbWV0dGEuY29tIiwiYXVkIjoid29ya3BvaW50LWFwaSIsImNsaWVudF9pZCI6IndlYl9hcHAiLCJzdWIiOiJOZXN0ZXJvdkFAdGVzdC10YXNrLnJ1IiwiYXV0aF90aW1lIjoxNjY2OTQzNjc2LCJpZHAiOiJsb2NhbCIsIm5hbWUiOiLQkNC70LXQutGB0LDQvdC00YAg0J3QtdGB0YLQtdGA0L7QsiIsInRlbmFudCI6InRlc3QtdGFzay5ydSIsImp0aSI6IjlGRjE2OEM2NEUyN0FCNkE4QTEyNzVENjI3MEY4QzEwIiwic2lkIjoiQTU5NTk0RTQ3QUFEMDFFOTkyM0Y0NzREQ0ZDNjQyRUIiLCJpYXQiOjE2NjY5NDM2NzYsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJhbGwiXSwiYW1yIjpbInB3ZCJdfQ.XTldxHD46FtHJgndoB0DV-61EmMUzGvhxqk6wc5_MERkvGnU7F0GVa-R6Yl4TND-8veqOAwJyHKW9zRd7c3m6o3R8XWi_tqz-XFdRhDE0INjmaQBAR9eQGphrWh6UKl0Gwdj2GNsUh2ZRMaPsaqGhoJ9e0Hc2yD83g-dDp9eknk1UC2mj4KRY6_bLmXbqg8jZGzwdHHZsOvgapUHZuwRuq0XyUAr4RQ6KrKVr5ZfUirvomLVeYra0m9uqqsTfLC0Y8naszJuDmBLZt7rqBnyuvYkhoAe9Uo1plPVHjQP9N6PSKw0jcvzZWeHmw9b12s1V33wASNl9q0_x1gcvtuVTg"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "ngsw-bypass",
+						"value": "true"
+					},
+					{
+						"key": "origin",
+						"value": "https://app.timetta.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://app.timetta.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"d1b8dfc0-b2ec-4b6a-927d-a39a534dbf07\",\"name\":\"ЛебедевProject2667\",\"code\":null,\"stateId\":\"9752fc91-714a-414f-9c03-8a3a1d6cce06\",\"managerId\":\"14ef4f7f-05ae-4cd1-b6da-a3ad83db2c26\",\"description\":null,\"startDate\":null,\"endDate\":null,\"organizationId\":\"76797ca0-dfdc-4138-967a-73eccfb9341c\",\"revenueRecognitionMethodId\":\"fa58a2c5-e524-432b-b675-cc26e0b975b0\",\"externalUrl\":null,\"allowTimeEntry\":false,\"skipManagerApprove\":false,\"billingTypeId\":\"e87e0e6b-c034-45ac-8b74-bd0256f3f535\"}"
+				},
+				"url": {
+					"raw": "https://api.timetta.com/odata/Projects(d1b8dfc0-b2ec-4b6a-927d-a39a534dbf07)",
+					"protocol": "https",
+					"host": [
+						"api",
+						"timetta",
+						"com"
+					],
+					"path": [
+						"odata",
+						"Projects(d1b8dfc0-b2ec-4b6a-927d-a39a534dbf07)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.7.4",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function makeid(length) {\r",
+							"    var result           = '';\r",
+							"    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\r",
+							"    var charactersLength = characters.length;\r",
+							"    for ( var i = 0; i < length; i++ ) {\r",
+							"      result += characters.charAt(Math.floor(Math.random() * \r",
+							" charactersLength));\r",
+							"   }\r",
+							"   return result;\r",
+							"}\r",
+							"\r",
+							"var nameid = makeid(5);\r",
+							"\r",
+							"pm.collectionVariables.set(\"random_name\", nameid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{random_name}}\",\n    \"billingTypeId\": \"e87e0e6b-c034-45ac-8b74-bd0256f3f535\",\n    \"managerId\": \"bcd753cc-0b80-47ae-a471-6ff7f06010e1\"\n}\n"
+				},
+				"url": {
+					"raw": "https://api.timetta.com/odata/Projects",
+					"protocol": "https",
+					"host": [
+						"api",
+						"timetta",
+						"com"
+					],
+					"path": [
+						"odata",
+						"Projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProjectBillingTypes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.timetta.com/odata/ProjectBillingTypes",
+					"protocol": "https",
+					"host": [
+						"api",
+						"timetta",
+						"com"
+					],
+					"path": [
+						"odata",
+						"ProjectBillingTypes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkUzQUJEMzAxNzdEMEZDNjU2RDg4MDRFOTQ2RUJFOTdCNTJBRUQ2MzhSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6IjQ2dlRBWGZRX0dWdGlBVHBSdXZwZTFLdTFqZyJ9.eyJuYmYiOjE2NjgwODIyMDUsImV4cCI6MTY2ODA4NTgwNSwiaXNzIjoiaHR0cHM6Ly9hdXRoLnRpbWV0dGEuY29tIiwiYXVkIjoid29ya3BvaW50LWFwaSIsImNsaWVudF9pZCI6ImV4dGVybmFsIiwic3ViIjoiTmVzdGVyb3ZBQHRlc3QtdGFzay5ydSIsImF1dGhfdGltZSI6MTY2ODA4MjIwNSwiaWRwIjoibG9jYWwiLCJuYW1lIjoi0JDQu9C10LrRgdCw0L3QtNGAINCd0LXRgdGC0LXRgNC-0LIiLCJ0ZW5hbnQiOiJ0ZXN0LXRhc2sucnUiLCJqdGkiOiI0RjI2MTZDRTM0RDExMzg5NkI4MDA3Q0RDQjBCQkZGRiIsImlhdCI6MTY2ODA4MjIwNSwic2NvcGUiOlsiYWxsIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.s73BfaDswANiJo-7LMGWgPjec3XSL0JFd80OM-RzBb3q2DegjuYWCmc9iecSAfJ_hbXccuKsi_CshJa5kcHm-NqP2cjis3ba9KuXT0-Xzg7TZHwEmkaGWPy3cUDmUxx29kLbFcF0HzhKIGrAFDH3rMmcDWxDiUBcFfsMB8jMa-LcgROE1lqEl0aJAeZiEQGjLgJcI8kR_ru-V19l9X9FBtkacKrfmuAbsWJ0KLnxMC0v3S4ctz9RaZ9Os-ZBBif8UOWaGRr_fdzje_kvUKxlyWZI7OOJzsqziXjbGt8n8SgYGTKXDEDfFhxYLF2Wti7o_SmUHREImw2SrjQjaMCBbA",
+			"type": "string"
+		},
+		{
+			"key": "random_name",
+			"value": "ANI0s"
+		}
+	]
+}
